@@ -11,7 +11,7 @@ def main():
 
     layout = ptg.Container(
         content_box,
-        input_field
+        input_field,
     )
 
     window = ptg.Window(
@@ -20,6 +20,7 @@ def main():
         expand=True
     )
 
+    window.center(1)
 
     manager = ptg.WindowManager()
     manager.add(window)
