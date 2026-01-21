@@ -1,10 +1,13 @@
 from textual.app import App
-from textual.widgets import Button, Footer, Header, Input, Log
+from textual.widgets import Button, Footer, Header, Input, Markdown
 
-class HelloApp(App):
+class Writer(App):
     def compose(self):
-        yield Static("Hello world!")
+        yield Header()
+        yield Footer()
+        yield Markdown("Hello World")
+        yield Input()
 
 if __name__ == "__main__":
-    app = HelloApp()
+    app = Writer()
     app.run()
