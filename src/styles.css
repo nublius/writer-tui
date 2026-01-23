@@ -1,0 +1,16 @@
+#text_display {
+  min_height: 90%;
+}
+
+#input_box {
+  align: center middle;
+}
+
+#input {
+  border: gray;
+  max-width: 98%;
+}
+
+#markdown {
+  padding: 2;
+}
