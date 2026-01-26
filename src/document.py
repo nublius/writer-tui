@@ -8,7 +8,7 @@ class Document:
         os.makedirs(self.folder, exist_ok=True)
 
         # Full path to file
-        self.file_path = os.path.join(self.folder, filename)
+        self.file_path = os.path.join(self.folder, file_name)
 
         # Check if file exists(empty if new)
         self._ensure_empty()
@@ -20,3 +20,11 @@ class Document:
     def append(self, line):
         with open(self.file_path, "a") as f:
             f.write(line + "\n")
+
+    def read_all(self):
+        with open(self.file_path, "r") as f:
+            return f.read().splitlines()
+
+    def read_text(self):
+        with open(self.file_path, "r") as f:
+            return f.read()
