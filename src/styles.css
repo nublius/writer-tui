@@ -9,6 +9,8 @@
 #input {
   border: gray;
   max-width: 98%;
+  border: round white;
+  background: white 0%;
 }
 
 #markdown {
