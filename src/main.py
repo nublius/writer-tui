@@ -7,6 +7,9 @@ class TextDisplay(Static):
     def compose(self):
         yield Markdown("", id="markdown")
 
+    def on_mount(self):
+        self.styles.overflow_y = "auto"
+
 class InputBox(Static):
     def compose(self):
         yield Input(id="input")
@@ -41,6 +44,9 @@ class Writer(App):
         markdown_widget = text_display.query_one("#markdown", Markdown)
         markdown_widget.update(self.doc.read_text())
         input_box = self.query_one("#input", Input)
+
+        self.call_after_refresh(lambda: text_display.scroll_end(animate=True))
+
         input_box.value = ""
 
 

@@ -1,5 +1,25 @@
+Screen {
+  layout: vertical;
+}
+
 #text_display {
-  min_height: 90%;
+    overflow-y: auto;
+    height: 1fr;
+    scrollbar-size: 1 1;
+    scrollbar-color: rgb(180,180,180);
+    scrollbar-background: rgb(30,30,30);
+}
+
+#markdown * {
+  color: rgb(180,180,180);
+}
+
+#markdown MarkdownHorizontalRule {
+    border-top: solid rgb(180,180,180);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin: 1 0;  /* optional spacing */
 }
 
 #input_box {
@@ -7,9 +27,8 @@
 }
 
 #input {
-  border: gray;
   max-width: 98%;
-  border: round white;
+  border: round gray;
   background: white 0%;
 }
 

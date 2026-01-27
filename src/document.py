@@ -1,7 +1,7 @@
 import os
 
 class Document:
-    def __init__(self, file_name, folder="dest"):
+    def __init__(self, file_name, folder="../dest"):
         # Absolute path to destination folder
         base_dir = os.path.dirname(os.path.abspath(__file__))
         self.folder = os.path.join(base_dir, folder)
