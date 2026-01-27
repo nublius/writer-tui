@@ -19,7 +19,7 @@ class Document:
 
     def append(self, line):
         with open(self.file_path, "a") as f:
-            f.write(line + "\n")
+            f.write(line + "  \n")
 
     def read_all(self):
         with open(self.file_path, "r") as f:

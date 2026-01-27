@@ -32,12 +32,16 @@ class Writer(App):
         
         if not self.doc:
             self.doc = Document(f"{submitted_text}.md")
+            if self.doc.read_text() == "":
+                self.doc.append(f"# {submitted_text}")
         else:
             self.doc.append(submitted_text)
 
         text_display = self.query_one("#text_display", TextDisplay)
         markdown_widget = text_display.query_one("#markdown", Markdown)
         markdown_widget.update(self.doc.read_text())
+        input_box = self.query_one("#input", Input)
+        input_box.value = ""
 
 
 
