@@ -1,5 +1,6 @@
 from textual import on
 from textual.app import App
+from textual.screen import Screen
 from textual.widgets import Button, Footer, Header, Input, Markdown, Static
 from document import Document
 
@@ -14,6 +15,20 @@ class InputBox(Static):
     def compose(self):
         yield Input(id="input")
 
+class MenuScreen(Screen):
+    def compose(self):
+        yield Header()
+        yield Button("New Document", id="new")
+        yield Button("Open Document" id="open")
+        yield Footer()
+
+class WriterScreen(Screen):
+    def compose(self):
+        yield Header()
+        yield Footer()
+        yield TextDisplay(id="text_display")
+        yield InputBox(id="input_box")
+
 class Writer(App):
     doc: Document | None = None
 
@@ -23,12 +38,7 @@ class Writer(App):
 
     CSS_PATH = "styles.css"
 
-    def compose(self):
-        yield Header()
-        yield Footer()
-        yield TextDisplay(id="text_display")
-        yield InputBox(id="input_box")
-
+    """
     @on(Input.Submitted)
     def on_input_submitted(self, event: Input.Submitted) -> None:
         submitted_text = event.value
@@ -48,6 +58,7 @@ class Writer(App):
         self.call_after_refresh(lambda: text_display.scroll_end(animate=True))
 
         input_box.value = ""
+    """
 
 
 
